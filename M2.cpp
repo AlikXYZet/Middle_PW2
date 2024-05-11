@@ -55,6 +55,9 @@ public:
 	// Перегрузка присвоения
 	Array& operator=(Array& other)
 	{
+		if (&other == this)
+			return *this;
+
 		// Освобождение памяти
 		FDelete();
 
@@ -148,4 +151,9 @@ int main()
 	cout << "\nИнициализация A3:";
 	Array A3(A1);
 	cout << "\nA3(A1):" << A3;
+
+	cout << "\nA3 = A3:";
+	A3 = A3;
+	cout << "\nA3:" << A3;
+
 }
